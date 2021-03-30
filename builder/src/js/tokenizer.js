@@ -1,6 +1,5 @@
 //의미가 있는 최소단위로 나누기.
 import util from './util.js';
-import isValidate from './isValidate'
 /*
 - 제일 바깥의 괄호를 제외하고 쉼표(,)를 기준으로 토큰을 나눈다.
 - 단, 괄호([], {}, ())나 따옴표("", '')가 나올 경우, 하나의 토큰 단위로 묶는다.
@@ -40,7 +39,7 @@ const tokenizer = (str) => {
             }
 
             if (QUOTES.includes(currEl)) {
-                bracketStack[bracketStack.length - 1] == currEl ? bracketStack.pop() : bracketStack.push(currEl)
+            bracketStack[bracketStack.length - 1] == currEl ? bracketStack.pop() : bracketStack.push(currEl)
 
                 buffer += currEl
             }
