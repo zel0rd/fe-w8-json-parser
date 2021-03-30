@@ -1,9 +1,7 @@
 //의미가 있는 최소단위로 나누기.
-
+import util from './util.js';
+import isValidate from './isValidate'
 /*
-1. 배열에 들어온 string을 split('')해서 하나의 letter 단위로 쪼갠다.
-2. 공백은 의미있는 단위가 아니므로 공백을 제거한 배열로 다시 필터링한다.
----------------------------------------------------------------------------
 - 제일 바깥의 괄호를 제외하고 쉼표(,)를 기준으로 토큰을 나눈다.
 - 단, 괄호([], {}, ())나 따옴표("", '')가 나올 경우, 하나의 토큰 단위로 묶는다.
 - 괄호([], {}, ())나 따옴표("", '')가 열렸을 경우, buffer 안에 문자열을 하나씩 쌓아간다. buffer가 끝나는 조건은 bracketstack이 비어있고(&&), 쉽표가 들어왔을때.
@@ -22,8 +20,7 @@ const tokenizer = (str) => {
     let BRACKETS_SET = []
     BRACKETS_SET.push(SBRACKETS_LEFT,SBRACKETS_RIGHT, MBRACKETS_LEFT, MBRACKETS_RIGHT, BBRACKETS_LEFT, BBRACKETS_RIGHT, SQUOTES, DQUOTES);
 
-    const strToLetter = str => str.split('').filter(el => el !== ' ');
-    const splitedArr = strToLetter(str);
+    const splitedArr = util.strToLetter(str);
     let buffer = '';
     const bracketStack = [];
     const tokenStack =[];
@@ -38,7 +35,6 @@ const tokenizer = (str) => {
             }
             if (RIGHTS.includes(currEl)) {
                 // right 브라켓이 들어오면 pop
-                //*** 짝을 맞춰주는 validation 체크가 필요함!!!! */
                 bracketStack.pop();
                 buffer += currEl;
             }
