@@ -14,12 +14,10 @@ const parser = (lexerToken) => {
             if (token.type === "array") {
                 return createChild(token.value);
             } else {
-                return [
-                    {
-                        type: token.type,
-                        value: token.value
-                    }
-                ];
+                return {
+                    type: token.type,
+                    value: token.value
+                };
             }
         })
     };
