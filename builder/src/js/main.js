@@ -3,6 +3,7 @@ import { pipe } from './util.js';
 import tokenizer from './tokenizer.js';
 import lexer from './lexer.js';
 import parser from './parser.js';
+import isValidate from './isValidate.js';
 
 //--------------test cases--------------
 const ex1 = '[1,2,[3,4,[5,[6]]]]';
@@ -11,17 +12,15 @@ const ex3 = '"1a3",[null,false,["11",[112233],{"easy" : ["hello", {"a":"a"}, "wo
 
 //json parser를 구동.
 function JSONParser (str) {
-    console.log("시험용");
     // const result = pipe(tokenizer, lexer, parser)(str);
     // return result;
-    console.log(tokenizer(str));
+    console.log(isValidate(str))
+    console.log(tokenizer(str))
+    return parser(lexer(tokenizer(str)));
 }
 
 const runTestCases = (str) => {
-    JSONParser(str);
-    // console.dir(JSONParser(ex1), {depth: null});
-    // console.dir(JSONParser(ex2), {depth: null});
-    // console.dir(JSONParser(ex3), {depth: null});
+    return JSONParser(str);
 }
 
 export default runTestCases;
