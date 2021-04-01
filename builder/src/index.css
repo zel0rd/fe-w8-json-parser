@@ -1,18 +1,122 @@
+/*----------------------
+DEFAULT SETTING
+-----------------------*/
+
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #aacfc8; */
+}
+
+html {
+  scroll-behavior: smooth;
+  color: #555;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility; /*텍스트 디스플레이를 최적화하는 메소드*/
+}
+
+/*----------------------
+BODY
+-----------------------*/
+
+body {
+  background-color: #bbe2dc;
+  background-position: center;
+  height: 100vh;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.title {
+  height: 4rem;
+}
+
+.top_container {
+  position: absolute;
+  width: 95%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 1px solid #58b19f;
+  border-radius: 20px;
   background-color: #fff;
 }
 
-label,
-textarea {
-  font-size: 2rem;
-  letter-spacing: 1px;
+/*input*/
+
+h2 {
+  font-weight: 600;
+  color: #58b19f;
+  margin-top: 1rem;
 }
+
+h2::after {
+  display: block;
+  height: 2px;
+  background-color: rgb(192, 186, 186);
+  content: " ";
+  width: 170px;
+  margin: 0 auto;
+  margin-top: 0.8rem;
+}
+
+label {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: left;
+  width: 100%;
+  color: #2e9e88;
+  margin-left: 4rem;
+}
+
+textarea {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: block;
+  width: 100%;
+  color: rgb(122, 121, 121);
+}
+
+#input-data {
+  height: 85%;
+}
+
+.container_input,
+.container_output {
+  display: inline-block;
+  height: 350px;
+  width: 40%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 textarea {
   padding: 10px;
   line-height: 1.5;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
+  width: 80%;
+  margin: auto;
+}
+
+button {
+  margin-top: 2rem;
+}
+
+/*arrow*/
+.container_arrow {
+  display: inline-block;
+  width: 5%;
+  height: 300px;
+  text-align: center;
+}
+
+.fa-arrow-right {
+  color: #588b81;
 }
 
 label {
@@ -20,6 +124,28 @@ label {
   margin-bottom: 10px;
 }
 
+/*output*/
+.container_tokenizer,
+.container_lexer,
+.container_parser {
+  text-align: left;
+}
+
+.title_tokenizer,
+.title_lexer,
+.title_parser {
+  color: #2e9e88;
+  margin-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .result {
-  border: 1px solid red;
+  margin: 0 2rem 1rem 2rem;
+  font-size: 0.7rem;
+  color: rgb(122, 121, 121);
+  height: 7rem;
+  width: 80%;
+  border: 1px solid #2e9e88;
+  border-radius: 5px;
+  padding: 0.3rem;
 }

@@ -14,8 +14,8 @@ const ex3 = '"1a3",[null,false,["11",[112233],{"easy" : ["hello", {"a":"a"}, "wo
 function JSONParser (str) {
     // const result = pipe(tokenizer, lexer, parser)(str);
     // return result;
-    console.log(isValidate(str))
-    console.log(tokenizer(str))
+    console.log("괄호의 짝이 맞는지 확인:", isValidate(str))
+    console.log("tokenizer:", tokenizer(str))
     return parser(lexer(tokenizer(str)));
 }
 

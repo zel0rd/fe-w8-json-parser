@@ -21,9 +21,15 @@ const result = {
 }
 
 submitBtn.addEventListener("click", () => {
-    let inputStr = _.$("#story").value;
-    result.tokenizer.textContent = JSON.stringify(tokenizer(inputStr));
-    result.lexer.textContent = JSON.stringify(lexer(tokenizer(inputStr)));
-    result.parser.textContent = JSON.stringify(parser(lexer(tokenizer(inputStr))));
-    outputStr.textContent = JSON.stringify(runTestCases(inputStr));
+    let inputStr = _.$("#input-data").value;
+    if(isValidate(inputStr)){
+        result.tokenizer.textContent = JSON.stringify(tokenizer(inputStr));
+        result.lexer.textContent = JSON.stringify(lexer(tokenizer(inputStr)));
+        result.parser.textContent = JSON.stringify(parser(lexer(tokenizer(inputStr))), null, " ");
+        // outputStr.textContent = JSON.stringify(runTestCases(inputStr));
+    } else {
+        result.tokenizer.textContent = "Invalid Input";
+        result.lexer.textContent = "Invalid Input";
+        result.parser.textContent = "Invalid Input";
+    }
 })
