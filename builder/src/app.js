@@ -21,7 +21,7 @@ const result = {
 }
 
 submitBtn.addEventListener("click", () => {
-    let inputStr = _.$("#story").value;
+    let inputStr = _.$("#input-data").value;
     result.tokenizer.textContent = JSON.stringify(tokenizer(inputStr));
     result.lexer.textContent = JSON.stringify(lexer(tokenizer(inputStr)));
     result.parser.textContent = JSON.stringify(parser(lexer(tokenizer(inputStr))));
