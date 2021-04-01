@@ -12,7 +12,6 @@ const isValidate = (str) => {
     const bracketStack = [];
     const bracketArr = util.strToLetter(str).filter(el => BRACKETS_SET.includes(el));
     bracketArr.forEach(ele => {
-        console.log(ele,isValid)
         if(BRACKETS_RIGHT.includes(ele)){
             bracketPairCheck(ele, bracketStack[bracketStack.length - 1])
             bracketStack.pop();    

@@ -4,6 +4,7 @@ import tokenizer from './js/tokenizer.js';
 import lexer from './js/lexer.js';
 import parser from './js/parser.js';
 import _ from './js/util.js'
+import { analyzer } from  './js/analyzer';
 
 const submitBtn = _.$(".submit");
 const outputStr = _.$(".output");
@@ -15,6 +16,7 @@ const result = {
 
 submitBtn.addEventListener("click", () => {
     let inputStr = _.$("#input-data").value;
+    analyzer(inputStr)
     if(isValidate(inputStr)){
         result.tokenizer.textContent = JSON.stringify(tokenizer(inputStr));
         result.lexer.textContent = JSON.stringify(lexer(tokenizer(inputStr)));
