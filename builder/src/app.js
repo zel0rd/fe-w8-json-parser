@@ -3,7 +3,7 @@ import lexer from './js/lexer.js';
 import parser from './js/parser.js';
 import _ from './js/util.js'
 import { analyzer } from  './js/analyzer';
-import _ from './js/util.js';
+import isValidate from './js/isValidate';
 
 const submitBtn = _.$(".submit");
 const result = {
