@@ -1,4 +1,3 @@
-//의미가 있는 최소단위로 나누기.
 import util from './util.js';
 /*
 - 제일 바깥의 괄호를 제외하고 쉼표(,)를 기준으로 토큰을 나눈다.
@@ -47,7 +46,6 @@ const tokenizer = (str) => {
         // 이 분기에서는 , 기준으로 buffer에 추가할지 tokenStack에 추가할지를 결정하게 됨.
         } else if(!BRACKETS_SET.includes(currEl) && bracketStack.length === 0){
             if(currEl === ","){
-                // debugger;
                 tokenStack.push(buffer)
                 buffer = ""
             } else {
