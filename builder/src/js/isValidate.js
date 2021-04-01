@@ -5,28 +5,29 @@ const [MBRACKETS_LEFT, MBRACKETS_RIGHT] = ["{","}"];
 const [BBRACKETS_LEFT, BBRACKETS_RIGHT] = ["[","]"];
 let BRACKETS_SET = [SBRACKETS_LEFT,SBRACKETS_RIGHT, MBRACKETS_LEFT, MBRACKETS_RIGHT, BBRACKETS_LEFT, BBRACKETS_RIGHT];
 let BRACKETS_RIGHT = [SBRACKETS_RIGHT, MBRACKETS_RIGHT, BBRACKETS_RIGHT]
+let isValid = true;
 
 const isValidate = (str) => {
-    let isValid = true;
+    isValid = true;
     const bracketStack = [];
-    const letterArr = util.strToLetter(str);
-    const bracketArr = letterArr.filter(el => BRACKETS_SET.includes(el));
+    const bracketArr = util.strToLetter(str).filter(el => BRACKETS_SET.includes(el));
     bracketArr.forEach(ele => {
+        console.log(ele,isValid)
         if(BRACKETS_RIGHT.includes(ele)){
-            const lastEl = bracketStack[bracketStack.length - 1];
-            switch(lastEl) {
-                case SBRACKETS_LEFT:
-                    ele !== SBRACKETS_RIGHT ? isValid =  false : "";
-                case MBRACKETS_LEFT:
-                    ele !== MBRACKETS_RIGHT ? isValid =  false : "";
-                case BBRACKETS_LEFT:
-                    ele !== BBRACKETS_RIGHT ? isValid =  false : "";
-            }
+            bracketPairCheck(ele, bracketStack[bracketStack.length - 1])
+            bracketStack.pop();    
         } else {
             bracketStack.push(ele);
         }
     });
+    if(bracketStack.length !== 0) isValid = false;
     return isValid;
+}
+
+function bracketPairCheck(RightBracket, lastEl){
+    RightBracket === SBRACKETS_RIGHT && lastEl !== SBRACKETS_LEFT ? isValid = false : "";
+    RightBracket === MBRACKETS_RIGHT && lastEl !== MBRACKETS_LEFT ? isValid = false : "";
+    RightBracket === BBRACKETS_RIGHT && lastEl !== BBRACKETS_LEFT ? isValid = false : ""; 
 }
 
 export default isValidate;
