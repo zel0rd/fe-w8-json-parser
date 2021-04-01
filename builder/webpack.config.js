@@ -2,11 +2,12 @@ const path = require('path');
 
 //여기도 추가
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
     mode: "development",
-    entry: ['./src/app.js', './src/index.css' ],
+    entry: ['./src/app.js', './src/index.css', './src/index.ts'],
     output: {
         path: path.resolve(__dirname, "public"),
         filename: "bundle.js",
@@ -23,6 +24,10 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             }
             ,
+            { 
+                test: /\.ts$/, 
+                use: 'awesome-typescript-loader' 
+            },
         ]
     },
     plugins: [new HtmlWebpackPlugin(
