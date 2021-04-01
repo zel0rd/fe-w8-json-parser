@@ -6,9 +6,11 @@ import isValidate from './isValidate.js';
 import { analyzer } from  './analyzer.js';
 
 let dataObj = {};
+const analyzerBtn = _.$(".analyzer");
 
 const processData = (str) => {
-    analyzer(str);
+    analyzerBtn.addEventListener("click", () => analyzer(str));
+    analyzerBtn.disabled = false;
     dataObj["tokenArr"] = JSON.stringify(tokenizer(str));
     dataObj["lexicalTokenArr"] = JSON.stringify(_.pipe(tokenizer, lexer)(str));
     dataObj["parsedData"] = JSON.stringify(_.pipe(tokenizer, lexer, parser)(str), null, "   ");
@@ -16,6 +18,7 @@ const processData = (str) => {
 }
 
 const showErrorMsg = () => {
+    analyzerBtn.disabled = true;
     const keys = ["tokenArr", "lexicalTokenArr", "parsedData"];
     keys.forEach(key => dataObj[key] = "Invalid Input");
     return dataObj;
