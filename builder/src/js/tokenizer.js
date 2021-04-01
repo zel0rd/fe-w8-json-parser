@@ -6,13 +6,14 @@ import util from './util.js';
 - bracketstack은 왼쪽(열리는 괄호)일 경우, push를 하고, 오른쪽(닫히는)일 경우 pop을 한다.
 - bracketstack이 빈 상태가 되면, 완성된 buffer를 tokenizerstack에 push한다.
 */
+/* util로 뺄것인가 */
 const [SBRACKETS_LEFT, SBRACKETS_RIGHT] = ["(",")"];
 const [MBRACKETS_LEFT, MBRACKETS_RIGHT] = ["{","}"];
 const [BBRACKETS_LEFT, BBRACKETS_RIGHT] = ["[","]"];
 const [SQUOTES, DQUOTES] = ["'",'"'];
 const LEFTS = [SBRACKETS_LEFT, MBRACKETS_LEFT, BBRACKETS_LEFT];
 const RIGHTS = [SBRACKETS_RIGHT, MBRACKETS_RIGHT, BBRACKETS_RIGHT];
-const QUOTES = [ SQUOTES, DQUOTES]
+const QUOTES = [SQUOTES, DQUOTES]
 
 const tokenizer = (str) => {
     let BRACKETS_SET = []
