@@ -14,13 +14,13 @@ const analyzer = (str) => {
     strTypeCount = 0;
     numTypeCount = 0;
     const parserResult = parser(lexer(tokenizer(str)), null, "   ");
-    
+
     getDepth(parserResult, 0)
     console.log("MAXDEPTH : ", MAXDEPTH)
 
     countStrType(parserResult)
     console.log("countStrType : ", strTypeCount)
-    
+
     countNumType(parserResult)
     console.log("countNumType : ", numTypeCount)
 
@@ -37,7 +37,7 @@ function getDepth(JSON, depth){
         for(let obj in JSON.child){
             getDepth(JSON.child[obj], depth)
         }
-    } 
+    }
     if(depth > MAXDEPTH){
         MAXDEPTH = depth;
     }

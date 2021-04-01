@@ -1,12 +1,11 @@
 /*----------------------
-DEFAULT SETTING
+-----DEFAULT SETTING----
 -----------------------*/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: #aacfc8; */
 }
 
 html {
@@ -14,11 +13,11 @@ html {
   color: #555;
   font-weight: 300;
   font-size: 20px;
-  text-rendering: optimizeLegibility; /*텍스트 디스플레이를 최적화하는 메소드*/
+  text-rendering: optimizeLegibility;
 }
 
 /*----------------------
-BODY
+----------BODY----------
 -----------------------*/
 
 body {
@@ -45,7 +44,7 @@ body {
   background-color: #fff;
 }
 
-/*input*/
+/*▶︎▶︎▶︎▶︎▶︎input◀︎◀︎◀︎◀︎◀︎◀︎*/
 
 h2 {
   font-weight: 600;
@@ -108,7 +107,17 @@ button {
   margin-top: 2rem;
 }
 
-/*arrow*/
+.analyzer {
+  margin-left: 1rem;
+}
+
+.analyzer-result {
+  color: rgb(122, 121, 121);
+  font-size: 0.8rem;
+}
+
+/*▶︎▶︎▶︎▶︎▶︎arrow◀︎◀︎◀︎◀︎◀︎◀︎*/
+
 .container_arrow {
   display: inline-block;
   width: 5%;
@@ -128,7 +137,7 @@ label {
   margin-bottom: 10px;
 }
 
-/*output*/
+/*▶︎▶︎▶︎▶︎▶︎output◀︎◀︎◀︎◀︎◀︎◀︎*/
 
 .container_output {
   display: inline-block;
