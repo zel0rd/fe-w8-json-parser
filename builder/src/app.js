@@ -1,6 +1,7 @@
-import _ from './js/util.js'
+import { util } from './js/util.js'
 import runJSONParser from './js/main.js';
 
+const _ = util;
 const submitBtn = _.$(".submit");
 const result = {
     tokenizer: _.$(".tokenizer_viewer"),

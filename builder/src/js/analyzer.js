@@ -1,9 +1,9 @@
-import _ from './util.js';
+import { util } from './util.js';
 import tokenizer from './tokenizer.js';
 import lexer from './lexer.js';
 import parser from './parser.js';
 
-const analysisResult = _.$(".analyzer-result");
+const analysisResult = util.$(".analyzer-result");
 let MAXDEPTH;
 let strTypeCount;
 let numTypeCount;

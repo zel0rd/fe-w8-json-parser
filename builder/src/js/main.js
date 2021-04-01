@@ -1,4 +1,4 @@
-import _ from './util.js';
+import { util } from './util.js';
 import tokenizer from './tokenizer.js';
 import lexer from './lexer.js';
 import parser from './parser.js';
@@ -6,6 +6,7 @@ import isValidate from './isValidate.js';
 import { analyzer } from  './analyzer.js';
 
 let dataObj = {};
+const _ = util;
 const analyzerBtn = _.$(".analyzer");
 
 const processData = (str) => {
