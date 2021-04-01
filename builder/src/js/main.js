@@ -1,4 +1,4 @@
-import { pipe } from './util.js';
+import pipe from './util.js';
 import tokenizer from './tokenizer.js';
 import lexer from './lexer.js';
 import parser from './parser.js';
