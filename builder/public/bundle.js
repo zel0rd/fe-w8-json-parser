@@ -9,6 +9,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/***/ (() => {
+
+eval("function greeter(person) {\n    return \"Hello, \" + person;\n}\nvar user = \"Jane\";\n// document.body.textContent = greeter(user);\n\n\n//# sourceURL=webpack://builder/./src/index.ts?");
+
+/***/ }),
+
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
@@ -16,18 +26,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_isValidate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/isValidate.js */ \"./src/js/isValidate.js\");\n/* harmony import */ var _js_main_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/main.js */ \"./src/js/main.js\");\n/* harmony import */ var _js_tokenizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/tokenizer.js */ \"./src/js/tokenizer.js\");\n/* harmony import */ var _js_lexer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/lexer.js */ \"./src/js/lexer.js\");\n/* harmony import */ var _js_parser_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/parser.js */ \"./src/js/parser.js\");\n/* harmony import */ var _js_util_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/util.js */ \"./src/js/util.js\");\n\n\n\n\n\n\n\nvar submitBtn = _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\".submit\");\n\nvar outputStr = _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\".output\");\n\nvar result = {\n  tokenizer: _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\".tokenizer_viewer\"),\n  lexer: _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\".lexer_viewer\"),\n  parser: _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\".parser_viewer\")\n};\nsubmitBtn.addEventListener(\"click\", function () {\n  var inputStr = _js_util_js__WEBPACK_IMPORTED_MODULE_5__.default.$(\"#input-data\").value;\n\n  if ((0,_js_isValidate_js__WEBPACK_IMPORTED_MODULE_0__.default)(inputStr)) {\n    result.tokenizer.textContent = JSON.stringify((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(inputStr));\n    result.lexer.textContent = JSON.stringify((0,_js_lexer_js__WEBPACK_IMPORTED_MODULE_3__.default)((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(inputStr)));\n    result.parser.textContent = JSON.stringify((0,_js_parser_js__WEBPACK_IMPORTED_MODULE_4__.default)((0,_js_lexer_js__WEBPACK_IMPORTED_MODULE_3__.default)((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(inputStr))), null, \"   \");\n  } else {\n    result.tokenizer.textContent = \"Invalid Input\";\n    result.lexer.textContent = \"Invalid Input\";\n    result.parser.textContent = \"Invalid Input\";\n  }\n});\n\n//# sourceURL=webpack://builder/./src/app.js?");
-
-/***/ }),
-
-/***/ "./src/js/isValidate.js":
-/*!******************************!*\
-  !*** ./src/js/isValidate.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.filter.js */ \"./node_modules/core-js/modules/es.array.filter.js\");\n/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ \"./node_modules/core-js/modules/es.array.includes.js\");\n/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ \"./node_modules/core-js/modules/es.string.includes.js\");\n/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ \"./node_modules/core-js/modules/web.dom-collections.for-each.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util.js */ \"./src/js/util.js\");\n\n\n\n\n\nvar SBRACKETS_LEFT = \"(\",\n    SBRACKETS_RIGHT = \")\";\nvar MBRACKETS_LEFT = \"{\",\n    MBRACKETS_RIGHT = \"}\";\nvar BBRACKETS_LEFT = \"[\",\n    BBRACKETS_RIGHT = \"]\";\nvar BRACKETS_SET = [SBRACKETS_LEFT, SBRACKETS_RIGHT, MBRACKETS_LEFT, MBRACKETS_RIGHT, BBRACKETS_LEFT, BBRACKETS_RIGHT];\nvar BRACKETS_RIGHT = [SBRACKETS_RIGHT, MBRACKETS_RIGHT, BBRACKETS_RIGHT];\n\nvar isValidate = function isValidate(str) {\n  var isValid = true;\n  var bracketStack = [];\n  var letterArr = _util_js__WEBPACK_IMPORTED_MODULE_4__.default.strToLetter(str);\n  var bracketArr = letterArr.filter(function (el) {\n    return BRACKETS_SET.includes(el);\n  });\n  bracketArr.forEach(function (ele) {\n    if (BRACKETS_RIGHT.includes(ele)) {\n      var lastEl = bracketStack[bracketStack.length - 1];\n\n      switch (lastEl) {\n        case SBRACKETS_LEFT:\n          ele !== SBRACKETS_RIGHT ? isValid = false : \"\";\n\n        case MBRACKETS_LEFT:\n          ele !== MBRACKETS_RIGHT ? isValid = false : \"\";\n\n        case BBRACKETS_LEFT:\n          ele !== BBRACKETS_RIGHT ? isValid = false : \"\";\n      }\n    } else {\n      bracketStack.push(ele);\n    }\n  });\n  return isValid;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isValidate);\n\n//# sourceURL=webpack://builder/./src/js/isValidate.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_tokenizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/tokenizer.js */ \"./src/js/tokenizer.js\");\n/* harmony import */ var _js_lexer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/lexer.js */ \"./src/js/lexer.js\");\n/* harmony import */ var _js_parser_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/parser.js */ \"./src/js/parser.js\");\n/* harmony import */ var _js_util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/util.js */ \"./src/js/util.js\");\n\n\n\n\n\nvar submitBtn = _js_util_js__WEBPACK_IMPORTED_MODULE_3__.default.$(\".submit\");\n\nvar result = {\n  tokenizer: _js_util_js__WEBPACK_IMPORTED_MODULE_3__.default.$(\".tokenizer_viewer\"),\n  lexer: _js_util_js__WEBPACK_IMPORTED_MODULE_3__.default.$(\".lexer_viewer\"),\n  parser: _js_util_js__WEBPACK_IMPORTED_MODULE_3__.default.$(\".parser_viewer\")\n};\nsubmitBtn.addEventListener(\"click\", function () {\n  var inputStr = _js_util_js__WEBPACK_IMPORTED_MODULE_3__.default.$(\"#input-data\").value;\n\n  if (isValidate(inputStr)) {\n    result.tokenizer.textContent = JSON.stringify((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_0__.default)(inputStr));\n    result.lexer.textContent = JSON.stringify((0,_js_lexer_js__WEBPACK_IMPORTED_MODULE_1__.default)((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_0__.default)(inputStr)));\n    result.parser.textContent = JSON.stringify((0,_js_parser_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_js_lexer_js__WEBPACK_IMPORTED_MODULE_1__.default)((0,_js_tokenizer_js__WEBPACK_IMPORTED_MODULE_0__.default)(inputStr))), null, \"   \");\n  } else {\n    result.tokenizer.textContent = \"Invalid Input\";\n    result.lexer.textContent = \"Invalid Input\";\n    result.parser.textContent = \"Invalid Input\";\n  }\n});\n\n//# sourceURL=webpack://builder/./src/app.js?");
 
 /***/ }),
 
@@ -42,17 +41,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/js/main.js":
-/*!************************!*\
-  !*** ./src/js/main.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ \"./src/js/util.js\");\n/* harmony import */ var _tokenizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tokenizer.js */ \"./src/js/tokenizer.js\");\n/* harmony import */ var _lexer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lexer.js */ \"./src/js/lexer.js\");\n/* harmony import */ var _parser_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parser.js */ \"./src/js/parser.js\");\n/* harmony import */ var _isValidate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isValidate.js */ \"./src/js/isValidate.js\");\n\n\n\n\n //----------json parser를 구동------------\n\nvar JSONParser = function JSONParser(str) {\n  return (0,_util_js__WEBPACK_IMPORTED_MODULE_0__.pipe)(_tokenizer_js__WEBPACK_IMPORTED_MODULE_1__.default, _lexer_js__WEBPACK_IMPORTED_MODULE_2__.default, _parser_js__WEBPACK_IMPORTED_MODULE_3__.default)(str);\n};\n\nvar runTestCases = function runTestCases(str) {\n  return JSONParser(str);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (runTestCases);\n\n//# sourceURL=webpack://builder/./src/js/main.js?");
-
-/***/ }),
-
 /***/ "./src/js/parser.js":
 /*!**************************!*\
   !*** ./src/js/parser.js ***!
@@ -60,7 +48,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.map.js */ \"./node_modules/core-js/modules/es.array.map.js\");\n/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tokenizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tokenizer.js */ \"./src/js/tokenizer.js\");\n/* harmony import */ var _lexer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lexer.js */ \"./src/js/lexer.js\");\n\n//구조를 분석해서 tree구조를 생성한다.\n\n\n/*\ntype이 array인지 아닌지를 판단해서 재귀를 실행한다.\n*/\n\nvar parser = function parser(lexerToken) {\n  console.log(\"lexerToken\", lexerToken);\n  return {\n    type: 'array',\n    child: lexerToken.map(function (token) {\n      if (token.type === \"array\") {\n        return createChild(token.value);\n      } else {\n        return {\n          type: token.type,\n          value: token.value\n        };\n      }\n    })\n  };\n};\n\nvar createChild = function createChild(value) {\n  return parser((0,_lexer_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_tokenizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(value)));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (parser);\n\n//# sourceURL=webpack://builder/./src/js/parser.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.map.js */ \"./node_modules/core-js/modules/es.array.map.js\");\n/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tokenizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tokenizer.js */ \"./src/js/tokenizer.js\");\n/* harmony import */ var _lexer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lexer.js */ \"./src/js/lexer.js\");\n\n//구조를 분석해서 tree구조를 생성한다.\n\n\n/*\ntype이 array인지 아닌지를 판단해서 재귀를 실행한다.\n*/\n\nvar parser = function parser(lexerToken) {\n  return {\n    type: 'array',\n    child: lexerToken.map(function (token) {\n      if (token.type === \"array\") {\n        return createChild(token.value);\n      } else {\n        return {\n          type: token.type,\n          value: token.value\n        };\n      }\n    })\n  };\n};\n\nvar createChild = function createChild(value) {\n  return parser((0,_lexer_js__WEBPACK_IMPORTED_MODULE_2__.default)((0,_tokenizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(value)));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (parser);\n\n//# sourceURL=webpack://builder/./src/js/parser.js?");
 
 /***/ }),
 
@@ -127,17 +115,6 @@ eval("var isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/array-for-each.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/internals/array-for-each.js ***!
-  \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\nvar $forEach = __webpack_require__(/*! ../internals/array-iteration */ \"./node_modules/core-js/internals/array-iteration.js\").forEach;\nvar arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ \"./node_modules/core-js/internals/array-method-is-strict.js\");\n\nvar STRICT_METHOD = arrayMethodIsStrict('forEach');\n\n// `Array.prototype.forEach` method implementation\n// https://tc39.es/ecma262/#sec-array.prototype.foreach\nmodule.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {\n  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);\n} : [].forEach;\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/internals/array-for-each.js?");
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/array-includes.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/internals/array-includes.js ***!
@@ -165,17 +142,6 @@ eval("var bind = __webpack_require__(/*! ../internals/function-bind-context */ \
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js/internals/fails.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js/internals/well-known-symbol.js\");\nvar V8_VERSION = __webpack_require__(/*! ../internals/engine-v8-version */ \"./node_modules/core-js/internals/engine-v8-version.js\");\n\nvar SPECIES = wellKnownSymbol('species');\n\nmodule.exports = function (METHOD_NAME) {\n  // We can't use this feature detection in V8 since it causes\n  // deoptimization and serious performance degradation\n  // https://github.com/zloirock/core-js/issues/677\n  return V8_VERSION >= 51 || !fails(function () {\n    var array = [];\n    var constructor = array.constructor = {};\n    constructor[SPECIES] = function () {\n      return { foo: 1 };\n    };\n    return array[METHOD_NAME](Boolean).foo !== 1;\n  });\n};\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/internals/array-method-has-species-support.js?");
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/array-method-is-strict.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/core-js/internals/array-method-is-strict.js ***!
-  \******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js/internals/fails.js\");\n\nmodule.exports = function (METHOD_NAME, argument) {\n  var method = [][METHOD_NAME];\n  return !!method && fails(function () {\n    // eslint-disable-next-line no-useless-call,no-throw-literal -- required for testing\n    method.call(null, argument || function () { throw 1; }, 1);\n  });\n};\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/internals/array-method-is-strict.js?");
 
 /***/ }),
 
@@ -256,16 +222,6 @@ eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js/internals/global.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js/internals/is-object.js\");\n\nvar document = global.document;\n// typeof document.createElement is 'object' in old IE\nvar EXISTS = isObject(document) && isObject(document.createElement);\n\nmodule.exports = function (it) {\n  return EXISTS ? document.createElement(it) : {};\n};\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/internals/document-create-element.js?");
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/dom-iterables.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/core-js/internals/dom-iterables.js ***!
-  \*********************************************************/
-/***/ ((module) => {
-
-eval("// iterable DOM collections\n// flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods\nmodule.exports = {\n  CSSRuleList: 0,\n  CSSStyleDeclaration: 0,\n  CSSValueList: 0,\n  ClientRectList: 0,\n  DOMRectList: 0,\n  DOMStringList: 0,\n  DOMTokenList: 1,\n  DataTransferItemList: 0,\n  FileList: 0,\n  HTMLAllCollection: 0,\n  HTMLCollection: 0,\n  HTMLFormElement: 0,\n  HTMLSelectElement: 0,\n  MediaList: 0,\n  MimeTypeArray: 0,\n  NamedNodeMap: 0,\n  NodeList: 1,\n  PaintRequestList: 0,\n  Plugin: 0,\n  PluginArray: 0,\n  SVGLengthList: 0,\n  SVGNumberList: 0,\n  SVGPathSegList: 0,\n  SVGPointList: 0,\n  SVGStringList: 0,\n  SVGTransformList: 0,\n  SourceBufferList: 0,\n  StyleSheetList: 0,\n  TextTrackCueList: 0,\n  TextTrackList: 0,\n  TouchList: 0\n};\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/internals/dom-iterables.js?");
 
 /***/ }),
 
@@ -910,16 +866,6 @@ eval("\nvar fixRegExpWellKnownSymbolLogic = __webpack_require__(/*! ../internals
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js/internals/global.js\");\nvar DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ \"./node_modules/core-js/internals/dom-iterables.js\");\nvar forEach = __webpack_require__(/*! ../internals/array-for-each */ \"./node_modules/core-js/internals/array-for-each.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js/internals/create-non-enumerable-property.js\");\n\nfor (var COLLECTION_NAME in DOMIterables) {\n  var Collection = global[COLLECTION_NAME];\n  var CollectionPrototype = Collection && Collection.prototype;\n  // some Chrome versions have non-configurable methods on DOMTokenList\n  if (CollectionPrototype && CollectionPrototype.forEach !== forEach) try {\n    createNonEnumerableProperty(CollectionPrototype, 'forEach', forEach);\n  } catch (error) {\n    CollectionPrototype.forEach = forEach;\n  }\n}\n\n\n//# sourceURL=webpack://builder/./node_modules/core-js/modules/web.dom-collections.for-each.js?");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/index.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
@@ -1049,7 +995,8 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./src/app.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.css");
+/******/ 	__webpack_require__("./src/index.css");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
 /******/ 	
 /******/ })()
 ;

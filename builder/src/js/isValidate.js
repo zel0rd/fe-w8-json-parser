@@ -12,10 +12,9 @@ const isValidate = (str) => {
     const bracketStack = [];
     const bracketArr = util.strToLetter(str).filter(el => BRACKETS_SET.includes(el));
     bracketArr.forEach(ele => {
-        console.log(ele,isValid)
         if(BRACKETS_RIGHT.includes(ele)){
             bracketPairCheck(ele, bracketStack[bracketStack.length - 1])
-            bracketStack.pop();    
+            bracketStack.pop();
         } else {
             bracketStack.push(ele);
         }
@@ -27,7 +26,7 @@ const isValidate = (str) => {
 function bracketPairCheck(RightBracket, lastEl){
     RightBracket === SBRACKETS_RIGHT && lastEl !== SBRACKETS_LEFT ? isValid = false : "";
     RightBracket === MBRACKETS_RIGHT && lastEl !== MBRACKETS_LEFT ? isValid = false : "";
-    RightBracket === BBRACKETS_RIGHT && lastEl !== BBRACKETS_LEFT ? isValid = false : ""; 
+    RightBracket === BBRACKETS_RIGHT && lastEl !== BBRACKETS_LEFT ? isValid = false : "";
 }
 
 export default isValidate;

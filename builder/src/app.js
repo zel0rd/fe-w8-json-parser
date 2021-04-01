@@ -1,12 +1,9 @@
-import isValidate from './js/isValidate.js';
-import runTestCases from './js/main.js';
 import tokenizer from './js/tokenizer.js';
 import lexer from './js/lexer.js';
 import parser from './js/parser.js';
-import _ from './js/util.js'
+import _ from './js/util.js';
 
 const submitBtn = _.$(".submit");
-const outputStr = _.$(".output");
 const result = {
     tokenizer: _.$(".tokenizer_viewer"),
     lexer: _.$(".lexer_viewer"),
