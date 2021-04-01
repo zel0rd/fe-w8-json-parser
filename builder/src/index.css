@@ -84,13 +84,14 @@ textarea {
   height: 85%;
 }
 
-.container_input,
-.container_output {
+.container_input {
   display: inline-block;
-  height: 350px;
+  height: 400px;
   width: 40%;
   text-align: center;
   margin-top: 0.5rem;
+  position: absolute;
+  left: 8%;
 }
 
 textarea {
@@ -113,6 +114,9 @@ button {
   width: 5%;
   height: 300px;
   text-align: center;
+  position: absolute;
+  left: 48%;
+  top: 30%;
 }
 
 .fa-arrow-right {
@@ -125,6 +129,17 @@ label {
 }
 
 /*output*/
+
+.container_output {
+  display: inline-block;
+  height: 350px;
+  width: 40%;
+  text-align: center;
+  margin-top: 0.5rem;
+  position: absolute;
+  left: 55%;
+}
+
 .container_tokenizer,
 .container_lexer,
 .container_parser {
@@ -139,11 +154,23 @@ label {
   margin-bottom: 1rem;
 }
 
+.tokenizer_viewer {
+  height: 5rem;
+}
+
+.lexer_viewer {
+  height: 5rem;
+}
+
+.parser_viewer {
+  height: 13rem;
+}
+
 .result {
   margin: 0 2rem 1rem 2rem;
   font-size: 0.7rem;
+  font-family: "Nanum Gothic", sans-serif;
   color: rgb(122, 121, 121);
-  height: 7rem;
   width: 80%;
   border: 1px solid #2e9e88;
   border-radius: 5px;
