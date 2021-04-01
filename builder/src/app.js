@@ -12,7 +12,7 @@ const result = {
 submitBtn.addEventListener("click", () => {
     const inputStr = _.$("#input-data").value;
     const { tokenArr, lexicalTokenArr, parsedData } = runJSONParser(inputStr);
-    result.tokenizer.textContent = tokenArr;
-    result.lexer.textContent = lexicalTokenArr;
-    result.parser.textContent = parsedData;
+    result.tokenizer.innerHTML = tokenArr;
+    result.lexer.innerHTML = lexicalTokenArr;
+    result.parser.innerHTML = parsedData;
 })
