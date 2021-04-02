@@ -1,31 +1,34 @@
-//-------------module import------------
-import { pipe } from './util.js';
+import { util } from './util.js';
 import tokenizer from './tokenizer.js';
 import lexer from './lexer.js';
 import parser from './parser.js';
 import isValidate from './isValidate.js';
+import { analyzer } from  './analyzer.js';
 
-//--------------test cases--------------
-const ex1 = '[1,2,[3,4,[5,[6]]]]';
-const ex2 = '[1, [2,[3]],"hello world", "codesquadFE", null]';
-const ex3 = '"1a3",[null,false,["11",[112233],{"easy" : ["hello", {"a":"a"}, "world"]},112],55, "99"],{"a":"str", "b":[912,[5656,33],{"key" : "innervalue", "newkeys": [1,2,3,4,5]}]}, true';
+const _ = util;
+const analyzerBtn = _.$(".analyzer");
+let dataObj = {};
 
-//json parser를 구동.
-function JSONParser (str) {
-    // console.log("시험용");
-    // const result = pipe(tokenizer, lexer, parser)(str);
-    // return result;
-    // console.log(tokenizer(str));
-    console.log(isValidate(str))
-    console.log(tokenizer(str))
-    lexer(tokenizer(str))
+const runJSONParser = (str) => isValidate(str) ? processData(str) : showErrorMsg();
+
+const chgToStr = (obj) => JSON.stringify(obj, null, "   ");
+
+const processData = (str) => {
+    analyzerBtn.addEventListener("click", () => analyzer(str));
+    analyzerBtn.disabled = false;
+    analyzerBtn.classList.add("activate");
+    dataObj["tokenArr"] = chgToStr(tokenizer(str));
+    dataObj["lexicalTokenArr"] = chgToStr(_.pipe(tokenizer, lexer)(str));
+    dataObj["parsedData"] = chgToStr(_.pipe(tokenizer, lexer, parser)(str));
+    return dataObj;
 }
 
-const runTestCases = (str) => {
-    JSONParser(str);
-    // console.dir(JSONParser(ex1), {depth: null});
-    // console.dir(JSONParser(ex2), {depth: null});
-    // console.dir(JSONParser(ex3), {depth: null});
+const showErrorMsg = () => {
+    analyzerBtn.disabled = true;
+    analyzerBtn.classList.remove("activate");
+    const keys = ["tokenArr", "lexicalTokenArr", "parsedData"];
+    keys.forEach(key => dataObj[key] = "Invalid Input ❌");
+    return dataObj;
 }
 
-export default runTestCases;
+export default runJSONParser;
